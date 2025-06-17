@@ -19,11 +19,22 @@ public class WelcomePage extends BaseTest {
 	
 	@FindBy(xpath="//img[@alt='Tricentis Demo Web Shop']")
 	private WebElement demoLogo;
+
 	
 	public WebElement getDemoLogo() {
 		return demoLogo;
 	}
+	
+	
+	@FindBy(xpath="//a[contains(text(),'Books')]")
+	private WebElement booksLink;
+	
 
+	public WebElement getBooksLink() {
+		return booksLink;
+	}
+
+	
 	public void setDemoLogo(WebElement demoLogo) {
 		this.demoLogo = demoLogo;
 	}
@@ -39,5 +50,13 @@ public class WelcomePage extends BaseTest {
 		return loginLink;
 		
 	}
+	
+	@FindBy(linkText = "Shopping cart")
+	private WebElement shoppingCart;
 
+	public WebElement getShoppingCart() {
+		return shoppingCart;
+	}
+
+	
 }

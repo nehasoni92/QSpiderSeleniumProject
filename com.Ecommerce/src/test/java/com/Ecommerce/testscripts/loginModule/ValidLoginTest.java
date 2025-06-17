@@ -1,6 +1,7 @@
 package com.Ecommerce.testscripts.loginModule;
 
 import org.testng.Assert;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -10,8 +11,8 @@ import com.Ecommerce.genericLibrary.BaseClass;
 
 public class ValidLoginTest extends BaseClass{
 	
-	@Test
-	public void login()
+	@Test(groups = "FT")
+		public void login()
 	{
 		WelcomePage wp = new WelcomePage(driver);
 		//Hard Assert

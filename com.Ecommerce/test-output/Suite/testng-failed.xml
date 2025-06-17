@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Test(failed)">
+    <groups>
+      <run>
+        <include name="FT"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="com.Ecommerce.testscripts.addToCartModule.AddToCartTest">
+        <methods>
+          <include name="toCloseDataBase"/>
+          <include name="toConnectDataBase"/>
+          <include name="tocloseServer"/>
+          <include name="tearDown"/>
+          <include name="toConnectServer"/>
+          <include name="login"/>
+        </methods>
+      </class> <!-- com.Ecommerce.testscripts.addToCartModule.AddToCartTest -->
+      <class name="com.Ecommerce.testscripts.loginModule.ValidLoginTest">
+        <methods>
+          <include name="toCloseDataBase"/>
+          <include name="toConnectDataBase"/>
+          <include name="tocloseServer"/>
+          <include name="login"/>
+          <include name="tearDown"/>
+          <include name="toConnectServer"/>
+        </methods>
+      </class> <!-- com.Ecommerce.testscripts.loginModule.ValidLoginTest -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

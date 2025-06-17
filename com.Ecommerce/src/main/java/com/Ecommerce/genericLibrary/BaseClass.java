@@ -11,6 +11,8 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 
 public class BaseClass implements IAutoConstant {
 	
@@ -18,22 +20,24 @@ public class BaseClass implements IAutoConstant {
 	public FileUtility f = new FileUtility();
 	public DataUtility d = new DataUtility();	
 	
-	@BeforeSuite
+	@BeforeSuite(alwaysRun = true)
 	public void toConnectServer()
 	{
 		Reporter.log("++server connected successfully==", true);
 	}
 	
-	@BeforeTest
+	@BeforeTest(alwaysRun = true)
 	public void toConnectDataBase()
 	{
 		Reporter.log("++database connected successfully==", true);
 	}
 	
-	@BeforeClass
-	public void setUp()
+	@Parameters("browser")
+	@BeforeClass (alwaysRun = true)
+		public void setUp(@Optional("chrome") String browser)
 	{
-		String browser =  f.getDataFromProperty(PROP_PATH, "browser");
+		
+		//String browser =  f.getDataFromProperty(PROP_PATH, "browser");
 		String url = f.getDataFromProperty(PROP_PATH, "url");
 		Reporter.log("browser" +browser+ "launched successfully", true);
 		switch(browser.toLowerCase()) {
@@ -59,19 +63,19 @@ public class BaseClass implements IAutoConstant {
 		
 		}
 	
-	@AfterClass
+	@AfterClass(alwaysRun = true)
 	public void tearDown()
 	{
 		driver.quit();
 	}
 	
-	@AfterTest
+	@AfterTest(alwaysRun = true)
 	public void toCloseDataBase()
 	{
 		Reporter.log("++database closed successfully==", true);
 	}
 	
-	@AfterSuite
+	@AfterSuite(alwaysRun = true)
 	public void tocloseServer()
 	{
 		Reporter.log("++server closed successfully==", true);

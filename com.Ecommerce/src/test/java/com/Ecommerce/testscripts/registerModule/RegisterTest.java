@@ -21,12 +21,12 @@ public class RegisterTest extends BaseClass {
 	}
 		
 		@Test(dataProvider="TestData")
-		public void register(String gender, String firstName, String lastName, String email, String password) throws InterruptedException
+		public void register(String gender, String firstName, String lastName, String password) throws InterruptedException
 		{
 			WelcomePage wp = new WelcomePage(driver);
 			wp.getRegisterLink().click();
 			RegistrationPage rp=new RegistrationPage(driver);
-			rp.registration(driver, gender, firstName,lastName,email, password );
+			rp.registration(driver, gender, firstName,lastName,d.getRandomEmail(), password );
 		}
 
 }
